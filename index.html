@@ -138,7 +138,8 @@
     gap: 24px;
     margin-bottom: 28px;
   }
-.avatar-frame {
+  
+  .avatar-frame {
     flex-shrink: 0;
     width: 200px !important; 
     height: 200px !important;
@@ -156,6 +157,7 @@
     display: block;
     filter: grayscale(10%) contrast(1.03);
   }
+  
   .eyebrow{ margin-bottom: 8px; }
   .hero h1{
     font-size: clamp(1.9rem, 3.4vw, 2.6rem);
@@ -185,11 +187,24 @@
     display:inline-flex; align-items:center; gap:8px;
     transition: all .2s ease;
     border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
   }
   .btn-primary{ background: var(--accent); color: var(--bg); border-color:var(--accent); font-weight:700; }
-  .btn-primary:hover{ background: transparent; color: var(--accent); }
+  
+  .btn-primary:hover{ 
+    box-shadow: 0 0 15px var(--accent-dim), 0 0 30px rgba(255, 182, 39, 0.2);
+    transform: scale(1.02);
+  }
+  
   .btn-ghost{ color: var(--text); }
-  .btn-ghost:hover{ border-color: var(--accent); color: var(--accent); }
+  
+  .btn-ghost:hover{ 
+    background: rgba(74, 122, 157, 0.1); 
+    box-shadow: inset 0 0 10px rgba(74, 122, 157, 0.2);
+    border-color: var(--accent); 
+    color: var(--accent); 
+  }
 
   /* Schematic diagram */
   .schematic{
@@ -203,7 +218,7 @@
     font-family: var(--mono); font-size:10px; color: var(--text-muted);
     text-transform:uppercase; letter-spacing:0.12em;
     display:flex; justify-content:space-between; margin-bottom:18px;
-  } 
+  }
   .layer{
     border: 1px solid var(--line);
     background: var(--bg-panel-2);
@@ -215,23 +230,27 @@
     opacity:0;
     transform: translateY(8px);
     animation: layerIn .55s ease forwards;
+    transition: all 0.3s ease;
+    cursor: default;
   }
   .layer .l-title{ color: var(--text); font-weight:700; letter-spacing:0.02em; }
   .layer .l-sub{ color: var(--text-muted); font-size:11px; margin-top:3px; }
- .connector{
+  
+  .connector{
     height: 20px;
     margin-left: 22px;
     border-left: 1px dashed var(--line);
     opacity:0;
     animation: fadeIn .4s ease forwards;
+    transition: border-color 0.3s ease;
   }
-  
+
   /* Cascata exata respeitando a ordem do HTML */
-  .layer:nth-child(2) { animation-delay: 0.10s; } /* Interface */
-  .connector:nth-child(3) { animation-delay: 0.25s; } /* Linha 1 */
-  .layer:nth-child(4) { animation-delay: 0.40s; } /* API REST */
-  .connector:nth-child(5) { animation-delay: 0.55s; } /* Linha 2 */
-  .layer:nth-child(6) { animation-delay: 0.70s; } /* Persistência */ 
+  .layer:nth-child(2) { animation-delay: 0.10s; } 
+  .connector:nth-child(3) { animation-delay: 0.25s; } 
+  .layer:nth-child(4) { animation-delay: 0.40s; } 
+  .connector:nth-child(5) { animation-delay: 0.55s; } 
+  .layer:nth-child(6) { animation-delay: 0.70s; } 
 
   @keyframes layerIn{ to{ opacity:1; transform:translateY(0); } }
   @keyframes fadeIn{ to{ opacity:1; } }
@@ -254,6 +273,8 @@
     background: var(--bg-panel);
     border-radius: 4px;
     padding: 22px;
+    transition: all 0.3s ease;
+    position: relative;
   }
   .stack-card .tag{
     font-family: var(--mono); font-size: 10px; color: var(--accent);
@@ -279,9 +300,8 @@
     grid-template-columns: 90px 1fr auto;
     gap: 24px;
     align-items:center;
-    transition: background .2s ease;
+    transition: all 0.3s ease;
   }
-  .proj-row:hover{ background: var(--bg-panel-2); }
   .proj-id{ font-family: var(--mono); color: var(--text-muted); font-size:12px; }
   .proj-name{ font-size: 17px; font-weight:700; margin-bottom:6px; }
   .proj-desc{ color: var(--text-muted); font-size: 14px; max-width: 52ch; }
@@ -298,196 +318,17 @@
   }
   .proj-link:hover{ border-color: var(--accent); color: var(--accent); }
   .proj-placeholder{ color: var(--text-muted); font-style:normal; }
-/* ---------- Animações ---------- */
-  /* Efeito Hover nos Projetos */
-  .proj-row {
-    transition: all 0.3s ease;
-  }
-  
-  .proj-row:hover {
-    transform: translateY(-4px);
-    background: var(--bg-panel-2);
-    box-shadow: 0 8px 24px rgba(10, 31, 51, 0.8), 
-                0 0 0 1px var(--accent-dim);
-    z-index: 1;
-    position: relative;
-  }
-/* Efeito Hover nos Botões */
-  .btn {
-    position: relative;
-    overflow: hidden;
-  }
 
-  .btn-primary:hover {
-    box-shadow: 0 0 15px var(--accent-dim), 
-                0 0 30px rgba(255, 182, 39, 0.2);
-    transform: scale(1.02);
-  }
-
-  .btn-ghost {
-    transition: all 0.3s ease;
-  }
-
-  .btn-ghost:hover {
-    background: rgba(74, 122, 157, 0.1); /* Fundo azul bem suave */
-    box-shadow: inset 0 0 10px rgba(74, 122, 157, 0.2);
-  }
-  /* Animação de Entrada no Hero (Topo do site) */
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .hero-heading {
-    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  .hero p.lead {
-    opacity: 0;
-    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
-  }
-
-  .cta-row {
-    opacity: 0;
-    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
-  }
-  /* Efeito de Digitação no Eyebrow (Desenvolvedor Backend) */
-  .hero-heading .eyebrow {
-    display: inline-flex;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 2px solid var(--accent);
-    /* Força o tamanho do texto a crescer do zero */
-    animation: typing 2s steps(30, end) forwards, 
-               blinkCaret .75s step-end infinite;
-    max-width: 0; 
-  }
-
-  @keyframes typing {
-    from { max-width: 0; }
-    to { max-width: 100%; }
-  }
-
-  @keyframes blinkCaret {
-    from, to { border-color: transparent; }
-    50% { border-color: var(--accent); }
-  }
-  /* Interação imitando circuitos nos cards de Stack */
-  .stack-card {
-    transition: all 0.3s ease;
-    position: relative;
-  }
-  
-  .stack-card:hover {
-    border-color: var(--accent);
-    box-shadow: inset 0 0 20px rgba(255, 182, 39, 0.05), 
-                0 0 15px rgba(255, 182, 39, 0.1);
-    transform: translateY(-2px);
-  }
-
-  /* O "nó" de luz no canto superior esquerdo */
-  .stack-card::before {
-    content: "";
-    position: absolute;
-    top: -3px; 
-    left: -3px;
-    width: 6px; 
-    height: 6px;
-    background: var(--accent);
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .stack-card:hover::before {
-    opacity: 1;
-    box-shadow: 0 0 8px var(--accent);
-  }
-  /* Interatividade do Diagrama (fig. 01) */
-  .layer {
-    transition: all 0.3s ease;
-    cursor: default;
-  }
-
-  .layer:hover, 
-  .layer:active {
-    background: var(--bg);
-    border-color: var(--accent);
-    transform: translateX(10px) !important; /* Move a camada para a direita */
-    box-shadow: -4px 0 0 var(--accent); /* Cria uma barra lateral amarela */
-  }
-
-  .layer:hover .l-title, 
-  .layer:active .l-title {
-    color: var(--accent);
-  }
-
-  /* Faz a linha tracejada acender quando o mouse está na camada acima dela */
-  .connector {
-    transition: border-color 0.3s ease;
-  }
-  
-  .layer:hover + .connector,
-  .layer:active + .connector {
-    border-color: var(--accent);
-  }
-  /* Remove o brilho azul padrão do toque em celulares Android/iOS */
-  a, .btn, .layer, .proj-row, .stack-card, .edu-item {
-    -webkit-tap-highlight-color: transparent; 
-  }
-
-  /* Efeito de "afundar" o botão ao clicar/tocar */
-  .btn:active {
-    transform: scale(0.95) !important; 
-    box-shadow: none !important;
-  }
-  /* Interatividade na Formação */
-  .edu-item {
-    transition: all 0.3s ease;
-    padding: 16px;
-    margin: 0 -16px; /* Expande um pouco para os lados */
-    border-radius: 6px;
-    border-bottom-color: transparent; /* Esconde a linha padrão no hover */
-  }
-
-  .edu-item:hover,
-  .edu-item:active {
-    background: var(--bg-panel);
-    transform: translateX(4px);
-  }
-  /* Novo efeito para o Selo de Contato */
-  .stamp {
-    transition: all 0.3s ease;
-    cursor: default;
-  }
-
-  .stamp:hover,
-  .stamp:active {
-    background: var(--accent-dim);
-    color: var(--text);
-    border-color: var(--text);
-    transform: scale(1.05); /* Cresce só um pouquinho */
-  }
-
-  .stamp:hover::before,
-  .stamp:active::before {
-    border-color: var(--text);
-    opacity: 0.8;
-  }
-  
   /* ---------- Formação ---------- */
   .edu-list{ display:flex; flex-direction:column; gap: 22px; }
   .edu-item{
     display:grid; grid-template-columns: 140px 1fr; gap: 24px;
-    padding-bottom: 22px; border-bottom: 1px solid var(--line-faint);
+    padding: 16px; margin: 0 -16px; 
+    border-radius: 6px;
+    border-bottom: 1px solid var(--line-faint);
+    transition: all 0.3s ease;
   }
-  .edu-item:last-child{ border-bottom:none; padding-bottom:0; }
+  .edu-item:last-child{ border-bottom-color:transparent; padding-bottom:16px; }
   .edu-date{ font-family: var(--mono); font-size:12px; color: var(--accent); }
   .edu-title{ font-weight:700; font-size:16px; margin-bottom:4px; }
   .edu-org{ color: var(--text-muted); font-size:14px; margin-bottom: 8px; }
@@ -512,6 +353,7 @@
   .sig-block h2{ font-size: 1.9rem; margin-bottom: 14px; }
   .sig-block p{ color: var(--text-muted); max-width: 48ch; font-size:15px; margin-bottom:26px; }
   .contact-links{ display:flex; gap:14px; flex-wrap:wrap; }
+  
   .stamp{
     width: 116px; height:116px;
     border: 1px solid var(--accent);
@@ -521,6 +363,8 @@
     font-family: var(--mono); font-size: 9.5px; color: var(--accent);
     letter-spacing:0.05em;
     position: relative;
+    transition: all 0.3s ease;
+    cursor: default;
   }
   .stamp::before{
     content:"";
@@ -528,17 +372,118 @@
     border: 1px dashed var(--accent);
     border-radius:50%;
     opacity:.5;
+    transition: all 0.3s ease;
   }
 
   footer{ padding: 32px; text-align:center; }
   footer p{ font-family: var(--mono); font-size:11px; color: var(--text-muted); }
+
+  /*---- EFEITOS VISUAIS E INTERATIVIDADE---- */
+
+  /* Animação de Entrada (Fade Up) com Cascata Limpa */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  section {
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  section:nth-of-type(1) { animation-delay: 0.1s; } 
+  section:nth-of-type(2) { animation-delay: 0.3s; } 
+
+  /* Efeito de Máquina de Escrever no Subtítulo */
+  .hero-heading .eyebrow {
+    display: inline-flex;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--accent);
+    animation: typing 2s steps(30, end) forwards, blinkCaret .75s step-end infinite;
+    max-width: 0;
+  }
+
+  @keyframes typing {
+    from { max-width: 0; }
+    to { max-width: 100%; }
+  }
+
+  @keyframes blinkCaret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--accent); }
+  }
+
+  /* Efeito Interativo no Diagrama (fig. 01) */
+  .layer:hover, 
+  .layer:active {
+    background: var(--bg);
+    border-color: var(--accent);
+    transform: translateX(10px) !important;
+    box-shadow: -4px 0 0 var(--accent);
+  }
+  .layer:hover .l-title, 
+  .layer:active .l-title { color: var(--accent); }
+  
+  .layer:hover + .connector,
+  .layer:active + .connector { border-color: var(--accent); }
+
+  /* Efeito de Circuito nos Cards Stack */
+  .stack-card:hover {
+    border-color: var(--accent);
+    box-shadow: inset 0 0 20px rgba(255, 182, 39, 0.05), 0 0 15px rgba(255, 182, 39, 0.1);
+    transform: translateY(-2px);
+  }
+  .stack-card::before {
+    content: ""; position: absolute; top: -3px; left: -3px; width: 6px; height: 6px;
+    background: var(--accent); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease;
+  }
+  .stack-card:hover::before {
+    opacity: 1; box-shadow: 0 0 8px var(--accent);
+  }
+
+  /* Efeito Levitar nos Projetos */
+  .proj-row:hover {
+    transform: translateY(-4px);
+    background: var(--bg-panel-2);
+    box-shadow: 0 8px 24px rgba(10, 31, 51, 0.8), 0 0 0 1px var(--accent-dim);
+    z-index: 1;
+    position: relative;
+  }
+
+  /* Efeito nos Itens de Formação */
+  .edu-item:hover,
+  .edu-item:active {
+    background: var(--bg-panel);
+    transform: translateX(4px);
+    border-bottom-color: transparent;
+  }
+
+  /* Efeito no Selo de Contato */
+  .stamp:hover,
+  .stamp:active {
+    background: var(--accent-dim);
+    color: var(--text);
+    border-color: var(--text);
+    transform: scale(1.05);
+  }
+  .stamp:hover::before,
+  .stamp:active::before { border-color: var(--text); opacity: 0.8; }
+
+  /* Correções para Mobile (Toque/Clique Nativo) */
+  a, .btn, .layer, .proj-row, .stack-card, .edu-item {
+    -webkit-tap-highlight-color: transparent; 
+  }
+  .btn:active {
+    transform: scale(0.95) !important; 
+    box-shadow: none !important;
+  }
 
   /* ---------- Responsive ---------- */
   @media (max-width: 860px){
     .hero-grid{ grid-template-columns: 1fr; }
     .about-grid{ grid-template-columns: 1fr; }
     .hero-heading{ gap:16px; }
-    .avatar-frame{ width:100px; height:100px; }
+    .avatar-frame{ width: 140px !important; height: 140px !important; }
     .stack-groups{ grid-template-columns: 1fr; }
     .proj-row{ grid-template-columns: 1fr; }
     .proj-link{ justify-self:start; }
@@ -549,7 +494,8 @@
   }
   @media (max-width: 520px){
     .wrap{ padding: 0 20px; }
-    .edu-item{ grid-template-columns: 1fr; gap:6px; }
+    .edu-item{ grid-template-columns: 1fr; gap:6px; margin: 0; padding: 12px 0; }
+    .edu-item:hover, .edu-item:active { transform: none; background: transparent; }
   }
 </style>
 </head>
@@ -659,7 +605,7 @@
         <span class="proj-id">P.01</span>
         <div>
           <div class="proj-name">ArtesãSoul</div>
-          <div class="proj-desc">Projeto em Java — edite esta descrição contando o problema que ele resolve e as decisões técnicas mais interessantes.</div>
+          <div class="proj-desc">Projeto em Java — Projeto feito por mim e meus colegas durante a faculdade em busca de conhecimento com a finalidade de apresentalo na conclusão do curso</div>
           <div class="proj-tags"><span>Java</span></div>
         </div>
         <a class="proj-link" href="https://github.com/HollidayPedro/projeto-artesansoul" target="_blank" rel="noopener">Ver no GitHub →</a>
@@ -668,7 +614,7 @@
         <span class="proj-id">P.02</span>
         <div>
           <div class="proj-name proj-placeholder">Próximo projeto</div>
-          <div class="proj-desc proj-placeholder">Espaço reservado — adicione aqui um projeto com Spring Boot, React ou React Native assim que publicar no GitHub.</div>
+          <div class="proj-desc proj-placeholder">Em breve — ...</div>
         </div>
         <a class="proj-link" href="https://github.com/HollidayPedro" target="_blank" rel="noopener">Em breve →</a>
       </div>
