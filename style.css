@@ -367,9 +367,7 @@ header{
 footer{ padding: 32px; text-align:center; }
 footer p{ font-family: var(--mono); font-size:11px; color: var(--text-muted); }
 
-/* =========================================
-   EFEITOS VISUAIS E INTERATIVIDADE 
-========================================= */
+/* --------EFEITOS VISUAIS E INTERATIVIDADE ----------*/
 
 /* Animação de Entrada (Fade Up) com Cascata Limpa */
 @keyframes fadeUp {
@@ -469,9 +467,7 @@ a, .btn, .layer, .proj-row, .stack-card, .edu-item {
   box-shadow: none !important;
 }
 
-/* =========================================
-   UX / UI PARA DISPOSITIVOS MÓVEIS 
-========================================= */
+/* ------------UX / UI PARA DISPOSITIVOS MÓVEIS ------------- */
 @media (max-width: 860px){
   /* Redução suave das fontes no mobile */
   :root {
@@ -496,9 +492,11 @@ a, .btn, .layer, .proj-row, .stack-card, .edu-item {
     gap: 24px;
     white-space: nowrap; /* Impede a quebra de linha dos links */
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Oculta scrollbar no Firefox */
+    scrollbar-width: none; 
+    /* Oculta scrollbar no Firefox */
   }
-  .nav ul::-webkit-scrollbar { display: none; } /* Oculta scrollbar no Chrome/Safari */
+  .nav ul::-webkit-scrollbar { display: none; } 
+  /* Oculta scrollbar no Chrome/Safari */
 
   /* Centralização da seção inicial (Hero) */
   .hero-top { 
