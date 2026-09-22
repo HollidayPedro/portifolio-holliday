@@ -39,7 +39,7 @@
           <p class="subtitle">constrói sistemas <span class="accent">do banco de dados à tela</span>.</p>
         </div>
       </div>
-      <p class="lead" id="hero-desc">Estudante do último período de Engenharia de Computação, focado em back-end Java com Spring Boot e Python — e capaz de fechar o produto inteiro com React e React Native.</p>
+      <p class="lead" id="hero-desc">Estudante do último período de Engenharia de Computação, focado em back-end com Java (Spring Boot), Python, PHP e Node.js — e capaz de fechar o produto inteiro com React e React Native.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#projetos">Ver projetos</a>
         <a class="btn btn-ghost" href="#contato">Falar comigo</a>
@@ -49,9 +49,9 @@
       <div class="cap"><span>fig. 01 — arquitetura</span><span>escala 1:1</span></div>
       <div class="layer"><div class="l-title">Interface</div><div class="l-sub">React · React Native</div></div>
       <div class="connector"></div>
-      <div class="layer"><div class="l-title">API REST</div><div class="l-sub">Spring Boot · Python · JWT · Swagger</div></div>
+      <div class="layer"><div class="l-title">API REST</div><div class="l-sub">Spring Boot · Python · Laravel · Node.js</div></div>
       <div class="connector"></div>
-      <div class="layer"><div class="l-title">Persistência</div><div class="l-sub">JPA · SQLAlchemy · JDBC</div></div>
+      <div class="layer"><div class="l-title">Persistência</div><div class="l-sub">JPA · SQLAlchemy · SQL</div></div>
     </div>
   </div>
 </section>
@@ -64,11 +64,11 @@
         <h2>Perfil</h2>
       </div>
       <div class="about-body">
-        <p id="about-text">Estou no 8º e último período de Engenharia de Computação na Universidade CEUMA, com foco em desenvolvimento back-end usando Java (Spring Boot) e Python: construção de APIs REST, autenticação, testes automatizados, documentação clara com Swagger e monitoramento.</p>
+        <p id="about-text">Estou no 8º e último período de Engenharia de Computação na Universidade CEUMA, com foco em desenvolvimento back-end usando Java, Python, PHP e Node.js: construção de APIs REST, autenticação, testes automatizados, documentação clara com Swagger e monitoramento.</p>
         <p>Também trabalho com React e React Native para entregar aplicações completas — do modelo de dados até a interface que o usuário toca. Possuo foco no aprimoramento do idioma Inglês (nível intermediário) e busco projetos desafiadores, incluindo atuações em times multiculturais ou programas de intercâmbio profissional.</p>
         <div class="stat-strip">
           <div class="stat"><span class="n" id="stat-period-num">8º</span><span class="l" id="stat-period-text">Período · Eng. Computação</span></div>
-          <div class="stat"><span class="n">200h+</span><span class="l">Formação Back-end</span></div>
+          <div class="stat"><span class="n">340h+</span><span class="l">Formação Back-end</span></div>
           <div class="stat"><span class="n" id="stat-year">2026</span><span class="l" id="stat-year-text">Previsão de formatura</span></div>
         </div>
       </div>
@@ -85,9 +85,9 @@
         <span class="tag">Back-end</span>
         <ul>
           <li>Java & Spring Boot</li>
-          <li>Python (FastAPI / Flask)</li>
-          <li>API REST</li>
-          <li>SQLAlchemy & JPA</li>
+          <li>Python & Node.js</li>
+          <li>PHP & Laravel</li>
+          <li>API REST & Bancos SQL</li>
         </ul>
       </div>
       <div class="stack-card">
@@ -95,7 +95,7 @@
         <ul>
           <li>React & JavaScript</li>
           <li>React Native</li>
-          <li>HTML / CSS</li>
+          <li>HTML / Tailwind CSS</li>
         </ul>
       </div>
       <div class="stack-card">
@@ -148,6 +148,22 @@
           <div class="edu-title">Engenharia de Computação <span class="status-pill" id="edu-status">Em andamento</span></div>
           <div class="edu-org">Universidade CEUMA</div>
           <div class="edu-desc" id="edu-desc">Cursando o 8º e último período do curso.</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-date">09/2026</div>
+        <div>
+          <div class="edu-title">Curso de Extensão em Fundamentos do Node.js — 18h</div>
+          <div class="edu-org">Rocketseat</div>
+          <div class="edu-desc">Arquitetura Node.js (Event Loop, V8, threads), manipulação de módulos (CommonJS e ES Modules), assincronismo (Promises, async/await), streams, integração com SQLite e Postgres, Docker, testes nativos, Swagger e integração com IA da OpenAI.</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-date">09/2026</div>
+        <div>
+          <div class="edu-title">Curso de Extensão em PHP — 126h</div>
+          <div class="edu-org">Rocketseat</div>
+          <div class="edu-desc">Fundamentos do PHP, Programação Orientada a Objetos, padrão MVC, comandos SQL, gerenciamento de dependências com Composer, Fundamentos do Laravel (APIs, Artisan, Sanctum), testes com PHPUnit e Pest, Livewire e deploy com Laravel Cloud e Google Cloud.</div>
         </div>
       </div>
       <div class="edu-item">
@@ -207,7 +223,7 @@
 
       <!-- Artigo 2: Revista FT -->
       <div class="edu-item">
-        <div class="edu-date">11/2025</div>
+        <div class="edu-date">MÊS/ANO</div>
         <div>
           <div class="edu-title">Análise e simulação de filtros de áudio RC com Arduino — Revista FT</div>
           <div class="edu-org">Pesquisa Acadêmica</div>
@@ -277,9 +293,9 @@
   const dataAtual = new Date();
 
   if (dataAtual > dataFormatura) {
-    document.getElementById('hero-desc').innerHTML = "Engenheiro de Computação formado, focado em back-end Java com Spring Boot e Python — e capaz de fechar o produto inteiro com React e React Native.";
+    document.getElementById('hero-desc').innerHTML = "Engenheiro de Computação formado, focado em back-end com Java (Spring Boot), Python, PHP e Node.js — e capaz de fechar o produto inteiro com React e React Native.";
     
-    document.getElementById('about-text').innerHTML = "Sou Engenheiro de Computação formado pela Universidade CEUMA, com foco em desenvolvimento back-end usando Java (Spring Boot) e Python: construção de APIs REST, autenticação, testes automatizados, documentação clara com Swagger e monitoramento.";
+    document.getElementById('about-text').innerHTML = "Sou Engenheiro de Computação formado pela Universidade CEUMA, com foco em desenvolvimento back-end usando Java, Python, PHP e Node.js: construção de APIs REST, autenticação, testes automatizados, documentação clara com Swagger e monitoramento.";
     
     document.getElementById('stat-period-num').innerText = "100%";
     document.getElementById('stat-period-text').innerText = "Graduação Concluída";
