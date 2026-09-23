@@ -581,22 +581,39 @@
     const interactElements = document.querySelectorAll('.proj-row, .edu-item, .sig-block');
 
     function checkCards() {
+      // Se for PC (> 800px), desativa a auto-seleção e deixa só para o Mouse
       if (window.innerWidth > 800) {
         techCards.forEach(card => card.classList.remove('flipped'));
         interactElements.forEach(el => el.classList.remove('scroll-active'));
         return;
       }
+      
       const triggerPoint = window.innerHeight * 0.6; 
+
+      // 1. Radar das caixas 3D (Flip)
       techCards.forEach(card => {
         const rect = card.getBoundingClientRect();
-        const distance = Math.abs(triggerPoint - (rect.top + (rect.height / 2)));
-        if (distance < 90) card.classList.add('flipped');
-        else card.classList.remove('flipped');
+        const cardCenter = rect.top + (rect.height / 2);
+        const distance = Math.abs(triggerPoint - cardCenter);
+        
+        // AUMENTÁMOS O RAIO DE 90 PARA 160!
+        // Agora a caixa abre mais cedo e demora mais a fechar ao rolar rápido.
+        if (distance < 160) {
+          card.classList.add('flipped');
+        } else {
+          card.classList.remove('flipped');
+        }
       });
+
+      // 2. Radar das áreas de Projeto, Formação e Contato (Auto-Hover)
       interactElements.forEach(el => {
         const rect = el.getBoundingClientRect();
-        if (triggerPoint >= rect.top && triggerPoint <= rect.bottom) el.classList.add('scroll-active');
-        else el.classList.remove('scroll-active');
+        // Adicionei uma margem extra de 50px aqui também para tornar a leitura mais confortável
+        if (triggerPoint >= (rect.top - 50) && triggerPoint <= (rect.bottom + 50)) {
+          el.classList.add('scroll-active');
+        } else {
+          el.classList.remove('scroll-active');
+        }
       });
     }
 
