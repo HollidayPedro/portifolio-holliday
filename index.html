@@ -3,29 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Holliday Pedro — Desenvolvedor Backend</title>
+<title>Holliday Pedro — Backend Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Link responsável por carregar os ícones das linguagens -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- ==========================================================================
+     HEADER E NAVEGAÇÃO
+     ========================================================================== -->
 <header>
   <nav class="nav">
     <div class="mark">HOLLIDAY<span>.</span>DEV</div>
-    <ul>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#stack">Stack</a></li>
-      <li><a href="#projetos">Projetos</a></li>
-      <li><a href="#formacao">Formação</a></li>
-      <li><a href="#publicacoes">Publicações</a></li>
-      <li><a href="curriculo.pdf" target="_blank" rel="noopener">Currículo</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
+    
+    <!-- Este bloco (nav-actions) garante que o botão fique sempre do lado direito do menu -->
+    <div class="nav-actions">
+      <ul>
+        <li><a href="#sobre" data-i18n="nav-sobre">Sobre</a></li>
+        <li><a href="#stack" data-i18n="nav-stack">Stack</a></li>
+        <li><a href="#projetos" data-i18n="nav-projetos">Projetos</a></li>
+        <li><a href="#formacao" data-i18n="nav-formacao">Formação</a></li>
+        <li><a href="#publicacoes" data-i18n="nav-publicacoes">Publicações</a></li>
+        <li><a href="curriculo.pdf" target="_blank" rel="noopener" data-i18n="nav-curriculo" id="cv-link-nav">Currículo</a></li>
+        <li><a href="#contato" data-i18n="nav-contato">Contato</a></li>
+      </ul>
+      
+      <!-- Botão com as palavras completas (fica sempre visível no telemóvel) -->
+      <button id="btn-lang" class="btn-lang" onclick="toggleLanguage()" aria-label="Mudar idioma">Português</button>
+    </div>
   </nav>
 </header>
 
+<!-- ==========================================================================
+     HERO SECTION (Tela Inicial)
+     ========================================================================== -->
 <section class="hero">
   <div class="wrap">
     <div class="hero-top">
@@ -34,202 +49,364 @@
           <img src="profile.webp" alt="Foto de Holliday Pedro dos Reis Rodrigues">
         </div>
         <div>
-          <div class="eyebrow">Desenvolvedor Backend</div>
+          <div class="eyebrow" data-i18n="hero-eyebrow">Desenvolvedor Backend</div>
           <h1>Holliday Pedro</h1>
-          <p class="subtitle">constrói sistemas <span class="accent">do banco de dados à tela</span>.</p>
+          <p class="subtitle" data-i18n="hero-subtitle">constrói sistemas <span class="accent">do banco de dados à tela</span>.</p>
         </div>
       </div>
-      <p class="lead" id="hero-desc">Estudante do último período de Engenharia de Computação, focado em back-end com Java (Spring Boot), Python, PHP e Node.js — e capaz de fechar o produto inteiro com React e React Native.</p>
+      <p class="lead" id="hero-desc" data-i18n="hero-desc">Estudante do último período de Engenharia de Computação, focado em back-end com Java (Spring Boot), Python, PHP e Node.js — e capaz de fechar o produto inteiro com React e React Native.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="#projetos">Ver projetos</a>
-        <a class="btn btn-ghost" href="#contato">Falar comigo</a>
+        <a class="btn btn-primary" href="#projetos" data-i18n="hero-btn-proj">Ver projetos</a>
+        <a class="btn btn-ghost" href="#contato" data-i18n="hero-btn-contato">Falar comigo</a>
       </div>
     </div>
     <div class="schematic">
-      <div class="cap"><span>fig. 01 — arquitetura</span><span>escala 1:1</span></div>
-      <div class="layer"><div class="l-title">Interface</div><div class="l-sub">React · React Native</div></div>
+      <div class="cap"><span data-i18n="schem-cap">fig. 01 — arquitetura</span><span>escala 1:1</span></div>
+      <div class="layer"><div class="l-title" data-i18n="schem-interface">Interface</div><div class="l-sub">React · React Native</div></div>
       <div class="connector"></div>
-      <div class="layer"><div class="l-title">API REST</div><div class="l-sub">Spring Boot · Python · Laravel · Node.js</div></div>
+      <div class="layer"><div class="l-title" data-i18n="schem-api">API REST</div><div class="l-sub">Spring Boot · Python · Laravel · Node.js</div></div>
       <div class="connector"></div>
-      <div class="layer"><div class="l-title">Persistência</div><div class="l-sub">JPA · SQLAlchemy · SQL</div></div>
+      <div class="layer"><div class="l-title" data-i18n="schem-db">Persistência</div><div class="l-sub">JPA · SQLAlchemy · SQL</div></div>
     </div>
   </div>
 </section>
 
+<!-- ==========================================================================
+     SOBRE MIM
+     ========================================================================== -->
 <section id="sobre">
   <div class="wrap">
     <div class="about-grid">
       <div>
-        <div class="eyebrow">01 / Sobre</div>
-        <h2>Perfil</h2>
+        <div class="eyebrow" data-i18n="sobre-eyebrow">01 / Sobre</div>
+        <h2 data-i18n="sobre-title">Perfil</h2>
       </div>
       <div class="about-body">
-        <p id="about-text">Estou no 8º e último período de Engenharia de Computação na Universidade CEUMA, com foco em desenvolvimento back-end usando Java, Python, PHP e Node.js: construção de APIs REST, autenticação, testes automatizados, documentação clara com Swagger e monitoramento.</p>
-        <p>Também trabalho com React e React Native para entregar aplicações completas — do modelo de dados até a interface que o usuário toca. Possuo foco no aprimoramento do idioma Inglês (nível intermediário) e busco projetos desafiadores, incluindo atuações em times multiculturais ou programas de intercâmbio profissional.</p>
+        <p id="about-text" data-i18n="sobre-p1">Estou no 8º e último período de Engenharia de Computação na Universidade CEUMA, com foco em desenvolvimento back-end usando Java, Python, PHP e Node.js: construção de APIs REST, autenticação, testes automatizados, documentação clara com Swagger e monitoramento.</p>
+        <p data-i18n="sobre-p2">Também trabalho com React e React Native para entregar aplicações completas — do modelo de dados até a interface que o usuário toca. Possuo foco no aprimoramento do idioma Inglês (nível intermediário) e busco projetos desafiadores, incluindo atuações em times multiculturais ou programas de intercâmbio profissional.</p>
         <div class="stat-strip">
-          <div class="stat"><span class="n" id="stat-period-num">8º</span><span class="l" id="stat-period-text">Período · Eng. Computação</span></div>
-          <div class="stat"><span class="n">340h+</span><span class="l">Formação Back-end</span></div>
-          <div class="stat"><span class="n" id="stat-year">2026</span><span class="l" id="stat-year-text">Previsão de formatura</span></div>
+          <div class="stat"><span class="n" id="stat-period-num">8º</span><span class="l" id="stat-period-text" data-i18n="stat-period">Período · Eng. Computação</span></div>
+          <div class="stat"><span class="n">340h+</span><span class="l" data-i18n="stat-hours">Formação Back-end</span></div>
+          <div class="stat"><span class="n" id="stat-year">2026</span><span class="l" id="stat-year-text" data-i18n="stat-year">Previsão de formatura</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ==========================================================================
+     STACK TÉCNICO (Cards 3D e Categorias)
+     ========================================================================== -->
 <section id="stack">
   <div class="wrap">
-    <div class="eyebrow">02 / Componentes</div>
-    <h2 style="font-size:1.8rem; margin-bottom:36px;">Stack técnico</h2>
-    <div class="stack-groups">
-      <div class="stack-card">
-        <span class="tag">Back-end</span>
-        <ul>
-          <li>Java & Spring Boot</li>
-          <li>Python & Node.js</li>
-          <li>PHP & Laravel</li>
-          <li>API REST & Bancos SQL</li>
-        </ul>
+    <div class="eyebrow" data-i18n="stack-eyebrow">02 / Componentes</div>
+    <h2 style="font-size:1.8rem; margin-bottom:36px;" data-i18n="stack-title">Stack Técnico & Certificações</h2>
+    
+    <div class="stack-category" style="margin-bottom: 48px;">
+      <h3 class="category-title">Back-end</h3>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-default">
+            <i class="devicon-java-plain colored tech-icon-large"></i>
+            <span class="tech-name">Java & Spring</span>
+          </div>
+          <div class="tech-hover">
+            <div class="tech-hover-header"><i class="devicon-java-plain colored"></i> Java</div>
+            <p class="tech-hover-desc" data-i18n="stack-java">Criação de APIs REST, Spring Boot, Orientação a Objetos e JWT.</p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-default">
+            <i class="devicon-python-plain colored tech-icon-large"></i>
+            <span class="tech-name">Python</span>
+          </div>
+          <div class="tech-hover">
+            <div class="tech-hover-header"><i class="devicon-python-plain colored"></i> Python</div>
+            <p class="tech-hover-desc" data-i18n="stack-python">FastAPI, Flask, SQLAlchemy e integração com LLMs e IAs.</p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-default">
+            <i class="devicon-php-plain colored tech-icon-large"></i>
+            <span class="tech-name">PHP & Laravel</span>
+          </div>
+          <div class="tech-hover">
+            <div class="tech-hover-header"><i class="devicon-php-plain colored"></i> PHP</div>
+            <p class="tech-hover-desc" data-i18n="stack-php">Padrão MVC, Composer, Laravel Sanctum e testes nativos.</p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-default">
+            <i class="devicon-nodejs-plain colored tech-icon-large"></i>
+            <span class="tech-name">Node.js</span>
+          </div>
+          <div class="tech-hover">
+            <div class="tech-hover-header"><i class="devicon-nodejs-plain colored"></i> Node.js</div>
+            <p class="tech-hover-desc" data-i18n="stack-node">Assincronismo, Event Loop, módulos nativos e APIs rápidas.</p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-default">
+            <i class="devicon-postgresql-plain colored tech-icon-large"></i>
+            <span class="tech-name" data-i18n="stack-sql-name">Bancos SQL</span>
+          </div>
+          <div class="tech-hover">
+            <div class="tech-hover-header"><i class="devicon-postgresql-plain colored"></i> SQL</div>
+            <p class="tech-hover-desc" data-i18n="stack-sql">Modelagem de dados relacionais, queries complexas e JPA.</p>
+          </div>
+        </div>
       </div>
-      <div class="stack-card">
-        <span class="tag">Front-end & Mobile</span>
-        <ul>
-          <li>React & JavaScript</li>
-          <li>React Native</li>
-          <li>HTML / Tailwind CSS</li>
-        </ul>
+    </div>
+
+    <div class="stack-split">
+      <div class="stack-category">
+        <h3 class="category-title" data-i18n="stack-front-title">Front-end & Mobile</h3>
+        <div class="tech-grid">
+          <div class="tech-card">
+            <div class="tech-default">
+              <i class="devicon-react-original colored tech-icon-large"></i>
+              <span class="tech-name">React & JS</span>
+            </div>
+            <div class="tech-hover">
+              <div class="tech-hover-header"><i class="devicon-react-original colored"></i> React</div>
+              <p class="tech-hover-desc" data-i18n="stack-react">Interfaces dinâmicas, Hooks, Context API e estado global.</p>
+            </div>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-default">
+              <i class="devicon-react-original colored tech-icon-large"></i>
+              <span class="tech-name">React Native</span>
+            </div>
+            <div class="tech-hover">
+              <div class="tech-hover-header"><i class="devicon-react-original colored"></i> Mobile</div>
+              <p class="tech-hover-desc" data-i18n="stack-mobile">Apps mobile cross-platform, Expo e navegação nativa.</p>
+            </div>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-default">
+              <i class="devicon-tailwindcss-original colored tech-icon-large"></i>
+              <span class="tech-name">HTML / CSS</span>
+            </div>
+            <div class="tech-hover">
+              <div class="tech-hover-header"><i class="devicon-tailwindcss-original colored"></i> Tailwind</div>
+              <p class="tech-hover-desc" data-i18n="stack-css">Estruturação web semântica e estilização rápida com Tailwind.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="stack-card">
-        <span class="tag">DevOps & Gestão</span>
-        <ul>
-          <li>Git & GitLab</li>
-          <li>Docker & RabbitMQ</li>
-          <li>ClickUp (Metodologias Ágeis)</li>
-        </ul>
+
+      <div class="stack-category">
+        <h3 class="category-title" data-i18n="stack-devops-title">DevOps & Gestão</h3>
+        <div class="tech-grid">
+          <div class="tech-card">
+            <div class="tech-default">
+              <i class="devicon-git-plain colored tech-icon-large"></i>
+              <span class="tech-name">Git & GitLab</span>
+            </div>
+            <div class="tech-hover">
+              <div class="tech-hover-header"><i class="devicon-git-plain colored"></i> <span data-i18n="stack-git-title">Versionamento</span></div>
+              <p class="tech-hover-desc" data-i18n="stack-git">Gestão de código-fonte, branches e fluxos de CI/CD básicos.</p>
+            </div>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-default">
+              <i class="devicon-docker-plain colored tech-icon-large"></i>
+              <span class="tech-name">Docker / RabbitMQ</span>
+            </div>
+            <div class="tech-hover">
+              <div class="tech-hover-header"><i class="devicon-docker-plain colored"></i> Infra</div>
+              <p class="tech-hover-desc" data-i18n="stack-docker">Containerização de serviços e mensageria assíncrona.</p>
+            </div>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-default">
+              <svg class="tech-icon-large" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#e2e8f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;">
+                <polyline points="9 11 12 14 22 4"></polyline>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+              </svg>
+              <span class="tech-name" data-i18n="stack-agile-name">ClickUp (Ágil)</span>
+            </div>
+            <div class="tech-hover">
+              <div class="tech-hover-header" data-i18n="stack-agile-title">Gestão</div>
+              <p class="tech-hover-desc" data-i18n="stack-agile">Planeamento de sprints, metodologias ágeis e tarefas.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ==========================================================================
+     PROJETOS RECENTES
+     ========================================================================== -->
 <section id="projetos">
   <div class="wrap">
-    <div class="eyebrow">03 / Projetos</div>
-    <h2 style="font-size:1.8rem; margin-bottom:36px;">Trabalhos recentes</h2>
+    <div class="eyebrow" data-i18n="proj-eyebrow">03 / Projetos</div>
+    <h2 style="font-size:1.8rem; margin-bottom:36px;" data-i18n="proj-title">Trabalhos recentes</h2>
     <div class="proj-list">
+      
+      <!-- P.01 Educalegis -->
       <div class="proj-row">
         <span class="proj-id">P.01</span>
         <div>
           <div class="proj-name">Sistema Educalegis (ALEMA)</div>
-          <div class="proj-desc">Desenvolvimento back-end para o sistema Educalegis, responsável pela construção de novas funcionalidades e evolução das APIs REST. Atuação focada na implementação de regras de negócio no código-fonte, rastreamento de repositórios via GitLab e gestão ágil no ClickUp.</div>
-          <div class="proj-tags"><span>API REST</span><span>GitLab</span><span>Regras de Negócio</span></div>
+          <div class="proj-desc" data-i18n="proj-edu-desc">Desenvolvimento back-end para o sistema Educalegis, responsável pela construção de novas funcionalidades e evolução das APIs REST. Atuação focada na implementação de regras de negócio no código-fonte, rastreamento de repositórios via GitLab e gestão ágil no ClickUp.</div>
+          <div class="proj-tags">
+            <span>API REST</span>
+            <span>GitLab</span>
+            <span data-i18n="proj-edu-tag">Regras de Negócio</span>
+          </div>
         </div>
-        <span class="proj-link proj-placeholder">Ambiente Profissional</span>
+        <span class="proj-link proj-placeholder" data-i18n="proj-prof">Ambiente Profissional</span>
       </div>
+
+      <!-- P.02 ArtesãSoul -->
       <div class="proj-row">
         <span class="proj-id">P.02</span>
         <div>
           <div class="proj-name">ArtesãSoul</div>
-          <div class="proj-desc">Projeto acadêmico de conclusão em Java desenvolvido em equipe, aplicando fundamentos de engenharia de software e persistência de dados.</div>
-          <div class="proj-tags"><span>Java</span><span>Trabalho em Equipe</span></div>
+          <div class="proj-desc" data-i18n="proj-art-desc">Projeto acadêmico de conclusão em Java desenvolvido em equipe, aplicando fundamentos de engenharia de software e persistência de dados.</div>
+          <div class="proj-tags">
+            <span>Java</span>
+            <span data-i18n="proj-art-tag">Trabalho em Equipe</span>
+          </div>
         </div>
-        <a class="proj-link" href="https://github.com/HollidayPedro/projeto-artesansoul" target="_blank" rel="noopener" aria-label="Ver projeto ArtesãSoul no GitHub">Ver no GitHub →</a>
+        <a class="proj-link" href="https://github.com/HollidayPedro/projeto-artesansoul" target="_blank" rel="noopener"><span data-i18n="proj-github">Ver no GitHub</span> →</a>
       </div>
+
+      <!-- P.03 Chat-ia -->
+      <div class="proj-row">
+        <span class="proj-id">P.03</span>
+        <div>
+          <div class="proj-name">Chat-ia</div>
+          <div class="proj-desc" data-i18n="proj-chat-desc">Aplicação de chat interativo com integração de Inteligência Artificial. Projeto desenvolvido para explorar o consumo de APIs de LLMs, oferecendo uma interface de conversação fluida e processamento inteligente no back-end.</div>
+          <div class="proj-tags">
+            <span data-i18n="proj-chat-tag1">Integração de IA</span>
+            <span>API REST</span>
+            <span data-i18n="proj-chat-tag3">Inovação</span>
+          </div>
+        </div>
+        <a class="proj-link" href="https://github.com/HollidayPedro/Chat-ia" target="_blank" rel="noopener"><span data-i18n="proj-github">Ver no GitHub</span> →</a>
+      </div>
+
     </div>
   </div>
 </section>
 
+<!-- ==========================================================================
+     FORMAÇÃO E CERTIFICADOS
+     ========================================================================== -->
 <section id="formacao">
   <div class="wrap">
-    <div class="eyebrow">04 / Formação</div>
-    <h2 style="font-size:1.8rem; margin-bottom:36px;">Formação e certificados</h2>
+    <div class="eyebrow" data-i18n="edu-eyebrow">04 / Formação</div>
+    <h2 style="font-size:1.8rem; margin-bottom:36px;" data-i18n="edu-title">Formação e certificados</h2>
     <div class="edu-list">
+      
       <div class="edu-item">
         <div class="edu-date">2022 — 2026</div>
         <div>
-          <div class="edu-title">Engenharia de Computação <span class="status-pill" id="edu-status">Em andamento</span></div>
+          <div class="edu-title"><span data-i18n="edu-eng-name">Engenharia de Computação</span> <span class="status-pill" id="edu-status" data-i18n="edu-eng-status">Em andamento</span></div>
           <div class="edu-org">Universidade CEUMA</div>
-          <div class="edu-desc" id="edu-desc">Cursando o 8º e último período do curso.</div>
+          <div class="edu-desc" id="edu-desc" data-i18n="edu-eng-desc">Cursando o 8º e último período do curso.</div>
         </div>
       </div>
+
       <div class="edu-item">
         <div class="edu-date">09/2026</div>
         <div>
-          <div class="edu-title">Curso de Extensão em Fundamentos do Node.js — 18h</div>
+          <div class="edu-title" data-i18n="edu-node-name">Curso de Extensão em Fundamentos do Node.js — 18h</div>
           <div class="edu-org">Rocketseat</div>
-          <div class="edu-desc">Arquitetura Node.js (Event Loop, V8, threads), manipulação de módulos (CommonJS e ES Modules), assincronismo (Promises, async/await), streams, integração com SQLite e Postgres, Docker, testes nativos, Swagger e integração com IA da OpenAI.</div>
+          <div class="edu-desc" data-i18n="edu-node-desc">Arquitetura Node.js (Event Loop, V8, threads), manipulação de módulos (CommonJS e ES Modules), assincronismo (Promises, async/await), streams, integração com SQLite e Postgres, Docker, testes nativos, Swagger e integração com IA da OpenAI.</div>
         </div>
       </div>
+
       <div class="edu-item">
         <div class="edu-date">09/2026</div>
         <div>
-          <div class="edu-title">Curso de Extensão em PHP — 126h</div>
+          <div class="edu-title" data-i18n="edu-php-name">Curso de Extensão em PHP — 126h</div>
           <div class="edu-org">Rocketseat</div>
-          <div class="edu-desc">Fundamentos do PHP, Programação Orientada a Objetos, padrão MVC, comandos SQL, gerenciamento de dependências com Composer, Fundamentos do Laravel (APIs, Artisan, Sanctum), testes com PHPUnit e Pest, Livewire e deploy com Laravel Cloud e Google Cloud.</div>
+          <div class="edu-desc" data-i18n="edu-php-desc">Fundamentos do PHP, Programação Orientada a Objetos, padrão MVC, comandos SQL, gerenciamento de dependências com Composer, Fundamentos do Laravel (APIs, Artisan, Sanctum), testes com PHPUnit e Pest, Livewire e deploy com Laravel Cloud e Google Cloud.</div>
         </div>
       </div>
+
       <div class="edu-item">
         <div class="edu-date">08/2026</div>
         <div>
-          <div class="edu-title">Formação em Python — 100h</div>
+          <div class="edu-title" data-i18n="edu-py-name">Formação em Python — 100h</div>
           <div class="edu-org">Rocketseat</div>
-          <div class="edu-desc">Fundamentos de Python, APIs REST (Flask e FastAPI), SQLAlchemy (MySQL, SQLite, Redis, MongoDB), Websockets, Design Patterns, SOLID, Arquitetura MVC, Autenticação JWT, Testes Automatizados com Pytest, mensageria com RabbitMQ, e integração com LLMs via Ollama e Streamlit.</div>
+          <div class="edu-desc" data-i18n="edu-py-desc">Fundamentos de Python, APIs REST (Flask e FastAPI), SQLAlchemy (MySQL, SQLite, Redis, MongoDB), Websockets, Design Patterns, SOLID, Arquitetura MVC, Autenticação JWT, Testes Automatizados com Pytest, mensageria com RabbitMQ, e integração com LLMs via Ollama e Streamlit.</div>
         </div>
       </div>
+
       <div class="edu-item">
         <div class="edu-date">08/2026</div>
         <div>
-          <div class="edu-title">Curso de Extensão em React Native — 155h</div>
+          <div class="edu-title" data-i18n="edu-rn-name">Curso de Extensão em React Native — 155h</div>
           <div class="edu-org">Rocketseat</div>
-          <div class="edu-desc">React Native, Expo, TypeScript, gerenciamento de estado (Zustand, Context API), armazenamento (AsyncStorage, SQLite), API REST (Axios), navegação (React Navigation, Expo Router), Push Notifications, animações e testes (Jest, RTL, Maestro).</div>
+          <div class="edu-desc" data-i18n="edu-rn-desc">React Native, Expo, TypeScript, gerenciamento de estado (Zustand, Context API), armazenamento (AsyncStorage, SQLite), API REST (Axios), navegação (React Navigation, Expo Router), Push Notifications, animações e testes (Jest, RTL, Maestro).</div>
         </div>
       </div>
+
       <div class="edu-item">
         <div class="edu-date">07/2026</div>
         <div>
-          <div class="edu-title">Curso de Extensão em React — 35h</div>
+          <div class="edu-title" data-i18n="edu-react-name">Curso de Extensão em React — 35h</div>
           <div class="edu-org">Rocketseat</div>
-          <div class="edu-desc">Fundamentos do React, renderização, estado, componentes, JSX, hooks, Context API, Vite, Tailwind, memoização, requisições API, React Query, Radix UI, roteamento, URL state, NUQS, validação com Zod e deploy.</div>
+          <div class="edu-desc" data-i18n="edu-react-desc">Fundamentos do React, renderização, estado, components, JSX, hooks, Context API, Vite, Tailwind, memoização, requisições API, React Query, Radix UI, roteamento, URL state, NUQS, validação com Zod e deploy.</div>
         </div>
       </div>
+
       <div class="edu-item">
         <div class="edu-date">06/2026</div>
         <div>
-          <div class="edu-title">Formação em Java — 100h</div>
+          <div class="edu-title" data-i18n="edu-java-name">Formação em Java — 100h</div>
           <div class="edu-org">Rocketseat</div>
-          <div class="edu-desc">Fundamentos de Java, Collections, Maven, JDBC, Spring Boot, API REST, JPA, autenticação com JWT, documentação com Swagger, testes com JUnit e Mockito, monitoramento com Prometheus e Grafana, Thymeleaf, design patterns e DDD.</div>
+          <div class="edu-desc" data-i18n="edu-java-desc">Fundamentos de Java, Collections, Maven, JDBC, Spring Boot, API REST, JPA, autenticação com JWT, documentação com Swagger, testes com JUnit e Mockito, monitoramento com Prometheus e Grafana, Thymeleaf, design patterns e DDD.</div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- ==========================================================================
+     PUBLICAÇÕES E PRODUÇÃO ACADÊMICA
+     ========================================================================== -->
 <section id="publicacoes">
   <div class="wrap">
-    <div class="eyebrow">05 / Publicações</div>
-    <h2 style="font-size:1.8rem; margin-bottom:36px;">Produção Acadêmica</h2>
+    <div class="eyebrow" data-i18n="pub-eyebrow">05 / Publicações</div>
+    <h2 style="font-size:1.8rem; margin-bottom:36px;" data-i18n="pub-title">Produção Acadêmica</h2>
     <div class="edu-list">
       
-      <!-- Artigo 1: Revista REASE -->
       <div class="edu-item">
         <div class="edu-date">11/2025</div>
         <div>
-          <div class="edu-title">Coautor de Artigo Científico — Revista REASE</div>
-          <div class="edu-org">Pesquisa Acadêmica</div>
-          <div class="edu-desc">Publicação de artigo científico na Revista REASE, abordando pesquisas e desenvolvimento na área de sistemas web digitais e simulação de circuitos eletrônicos.</div>
+          <div class="edu-title" data-i18n="pub-rease-title">Coautor de Artigo Científico — Revista REASE</div>
+          <div class="edu-org" data-i18n="pub-org">Pesquisa Acadêmica</div>
+          <div class="edu-desc" data-i18n="pub-rease-desc">Publicação de artigo científico na Revista REASE, abordando pesquisas e desenvolvimento na área de sistemas web digitais e simulação de circuitos eletrônicos.</div>
           <div style="margin-top: 12px;">
-            <a class="proj-link" href="https://periodicorease.pro.br/rease/article/view/22504" target="_blank" rel="noopener" aria-label="Ver artigo na Revista REASE">Ver publicação →</a>
+            <a class="proj-link" href="https://periodicorease.pro.br/rease/article/view/22504" target="_blank" rel="noopener"><span data-i18n="pub-link">Ver publicação</span> →</a>
           </div>
         </div>
       </div>
 
-      <!-- Artigo 2: Revista FT -->
       <div class="edu-item">
         <div class="edu-date">MÊS/ANO</div>
         <div>
-          <div class="edu-title">Análise e simulação de filtros de áudio RC com Arduino — Revista FT</div>
-          <div class="edu-org">Pesquisa Acadêmica</div>
-          <div class="edu-desc">Artigo científico focado na análise, projeto e simulação de filtros de áudio utilizando a plataforma Arduino.</div>
+          <div class="edu-title" data-i18n="pub-ft-title">Análise e simulação de filtros de áudio RC com Arduino — Revista FT</div>
+          <div class="edu-org" data-i18n="pub-org">Pesquisa Acadêmica</div>
+          <div class="edu-desc" data-i18n="pub-ft-desc">Artigo científico focado na análise, projeto e simulação de filtros de áudio utilizando a plataforma Arduino.</div>
           <div style="margin-top: 12px;">
-            <a class="proj-link" href="https://revistaft.com.br/analise-e-simulacao-de-filtros-de-audio-rc-com-arduino/" target="_blank" rel="noopener" aria-label="Ver artigo na Revista FT">Ver publicação →</a>
+            <a class="proj-link" href="https://revistaft.com.br/analise-e-simulacao-de-filtros-de-audio-rc-com-arduino/" target="_blank" rel="noopener"><span data-i18n="pub-link">Ver publicação</span> →</a>
           </div>
         </div>
       </div>
@@ -238,34 +415,147 @@
   </div>
 </section>
 
+<!-- ==========================================================================
+     CONTATO
+     ========================================================================== -->
 <section id="contato">
   <div class="wrap">
-    <div class="eyebrow">06 / Contato</div>
+    <div class="eyebrow" data-i18n="contato-eyebrow">06 / Contato</div>
     <div class="sig-block">
       <div>
-        <h2>Vamos conversar.</h2>
-        <p>Aberto a novos desafios profissionais, projetos freelance e oportunidades internacionais. Com experiência prática no desenvolvimento e evolução de sistemas corporativos, busco aplicar minha expertise na construção de aplicações escaláveis e arquiteturas back-end robustas.</p>
+        <h2 data-i18n="contato-title">Vamos conversar.</h2>
+        <p data-i18n="contato-desc">Aberto a novos desafios profissionais, projetos freelance e oportunidades internacionais. Com experiência prática no desenvolvimento e evolução de sistemas corporativos, busco aplicar minha expertise na construção de aplicações escaláveis e arquiteturas back-end robustas.</p>
         <div class="contact-links">
           <a class="btn btn-primary" href="mailto:holliday.pedro10@gmail.com">holliday.pedro10@gmail.com</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/holliday-pedro-dos-reis-rodrigues-643078357" target="_blank" rel="noopener" aria-label="Acessar meu perfil no LinkedIn">LinkedIn</a>
-          <a class="btn btn-ghost" href="https://github.com/HollidayPedro" target="_blank" rel="noopener" aria-label="Acessar meu repositório no GitHub">GitHub</a>
-          <a class="btn btn-ghost" href="curriculo.pdf" download aria-label="Baixar currículo em formato PDF">Baixar currículo (PDF)</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/holliday-pedro-dos-reis-rodrigues-643078357" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-ghost" href="https://github.com/HollidayPedro" target="_blank" rel="noopener">GitHub</a>
+          <!-- Adicionado ID para alterar o link do currículo dinamicamente -->
+          <a class="btn btn-ghost" href="curriculo.pdf" download data-i18n="contato-cv" id="cv-link-footer">Baixar currículo (PDF)</a>
         </div>
       </div>
-      <div class="stamp">HOLLIDAY<br>PEDRO<br>ENG. COMP.</div>
+      <div class="stamp">HOLLIDAY<br>PEDRO<br><span data-i18n="contato-eng">ENG. COMP.</span></div>
     </div>
   </div>
 </section>
 
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
 <footer>
-  <p>Feito por Holliday Pedro dos Reis Rodrigues · <span id="year"></span></p>
+  <p><span data-i18n="footer-text">Feito por Holliday Pedro dos Reis Rodrigues · </span><span id="year"></span></p>
 </footer>
 
+<!-- ==========================================================================
+     SCRIPTS (Navegação, Animações e Motor de Tradução Bilíngue)
+     ========================================================================== -->
 <script>
-  // Atualiza o ano no rodapé
+  // --- MOTOR DE TRADUÇÃO PT/EN ---
+  const i18n = {
+    pt: {
+      "nav-sobre": "Sobre", "nav-stack": "Stack", "nav-projetos": "Projetos", "nav-formacao": "Formação", "nav-publicacoes": "Publicações", "nav-curriculo": "Currículo", "nav-contato": "Contato",
+      "hero-eyebrow": "Desenvolvedor Backend", "hero-subtitle": "constrói sistemas <span class='accent'>do banco de dados à tela</span>.", "hero-btn-proj": "Ver projetos", "hero-btn-contato": "Falar comigo",
+      "schem-cap": "fig. 01 — arquitetura", "schem-interface": "Interface", "schem-api": "API REST", "schem-db": "Persistência",
+      "sobre-eyebrow": "01 / Sobre", "sobre-title": "Perfil", "sobre-p2": "Também trabalho com React e React Native para entregar aplicações completas — do modelo de dados até a interface que o usuário toca. Possuo foco no aprimoramento do idioma Inglês (nível intermediário) e busco projetos desafiadores, incluindo atuações em times multiculturais ou programas de intercâmbio profissional.",
+      "stat-period": "Período · Eng. Computação", "stat-hours": "Formação Back-end", "stat-year": "Previsão de formatura",
+      "stack-eyebrow": "02 / Componentes", "stack-title": "Stack Técnico & Certificações",
+      "stack-java": "Criação de APIs REST, Spring Boot, Orientação a Objetos e JWT.", "stack-python": "FastAPI, Flask, SQLAlchemy e integração com LLMs e IAs.", "stack-php": "Padrão MVC, Composer, Laravel Sanctum e testes nativos.", "stack-node": "Assincronismo, Event Loop, módulos nativos e APIs rápidas.", "stack-sql-name": "Bancos SQL", "stack-sql": "Modelagem de dados relacionais, queries complexas e JPA.",
+      "stack-front-title": "Front-end & Mobile", "stack-react": "Interfaces dinâmicas, Hooks, Context API e estado global.", "stack-mobile": "Apps mobile cross-platform, Expo e navegação nativa.", "stack-css": "Estruturação web semântica e estilização rápida com Tailwind.",
+      "stack-devops-title": "DevOps & Gestão", "stack-git-title": "Versionamento", "stack-git": "Gestão de código-fonte, branches e fluxos de CI/CD básicos.", "stack-docker": "Containerização de serviços e mensageria assíncrona.", "stack-agile-name": "ClickUp (Ágil)", "stack-agile-title": "Gestão", "stack-agile": "Planeamento de sprints, metodologias ágeis e tarefas.",
+      "proj-eyebrow": "03 / Projetos", "proj-title": "Trabalhos recentes", "proj-edu-desc": "Desenvolvimento back-end para o sistema Educalegis, responsável pela construção de novas funcionalidades e evolução das APIs REST. Atuação focada na implementação de regras de negócio no código-fonte, rastreamento de repositórios via GitLab e gestão ágil no ClickUp.", "proj-edu-tag": "Regras de Negócio", "proj-prof": "Ambiente Profissional", "proj-art-desc": "Projeto acadêmico de conclusão em Java desenvolvido em equipe, aplicando fundamentos de engenharia de software e persistência de dados.", "proj-art-tag": "Trabalho em Equipe", "proj-github": "Ver no GitHub", "proj-chat-desc": "Aplicação de chat interativo com integração de Inteligência Artificial. Projeto desenvolvido para explorar o consumo de APIs de LLMs, oferecendo uma interface de conversação fluida e processamento inteligente no back-end.", "proj-chat-tag1": "Integração de IA", "proj-chat-tag3": "Inovação",
+      "edu-eyebrow": "04 / Formação", "edu-title": "Formação e certificados", "edu-eng-name": "Engenharia de Computação", "edu-eng-status": "Em andamento", "edu-eng-desc": "Cursando o 8º e último período do curso.", "edu-node-name": "Curso de Extensão em Fundamentos do Node.js — 18h", "edu-node-desc": "Arquitetura Node.js (Event Loop, V8, threads), manipulação de módulos (CommonJS e ES Modules), assincronismo (Promises, async/await), streams, integração com SQLite e Postgres, Docker, testes nativos, Swagger e integração com IA da OpenAI.", "edu-php-name": "Curso de Extensão em PHP — 126h", "edu-php-desc": "Fundamentos do PHP, Programação Orientada a Objetos, padrão MVC, comandos SQL, gerenciamento de dependências com Composer, Fundamentos do Laravel (APIs, Artisan, Sanctum), testes com PHPUnit e Pest, Livewire e deploy com Laravel Cloud e Google Cloud.", "edu-py-name": "Formação em Python — 100h", "edu-py-desc": "Fundamentos de Python, APIs REST (Flask e FastAPI), SQLAlchemy (MySQL, SQLite, Redis, MongoDB), Websockets, Design Patterns, SOLID, Arquitetura MVC, Autenticação JWT, Testes Automatizados com Pytest, mensageria com RabbitMQ, e integração com LLMs via Ollama e Streamlit.", "edu-rn-name": "Curso de Extensão em React Native — 155h", "edu-rn-desc": "React Native, Expo, TypeScript, gerenciamento de estado (Zustand, Context API), armazenamento (AsyncStorage, SQLite), API REST (Axios), navegação (React Navigation, Expo Router), Push Notifications, animações e testes (Jest, RTL, Maestro).", "edu-react-name": "Curso de Extensão em React — 35h", "edu-react-desc": "Fundamentos do React, renderização, estado, componentes, JSX, hooks, Context API, Vite, Tailwind, memoização, requisições API, React Query, Radix UI, roteamento, URL state, NUQS, validação com Zod e deploy.", "edu-java-name": "Formação em Java — 100h", "edu-java-desc": "Fundamentos de Java, Collections, Maven, JDBC, Spring Boot, API REST, JPA, autenticação com JWT, documentação com Swagger, testes com JUnit e Mockito, monitoramento com Prometheus e Grafana, Thymeleaf, design patterns e DDD.",
+      "pub-eyebrow": "05 / Publicações", "pub-title": "Produção Acadêmica", "pub-rease-title": "Coautor de Artigo Científico — Revista REASE", "pub-org": "Pesquisa Acadêmica", "pub-rease-desc": "Publicação de artigo científico na Revista REASE, abordando pesquisas e desenvolvimento na área de sistemas web digitais e simulação de circuitos eletrônicos.", "pub-link": "Ver publicação", "pub-ft-title": "Análise e simulação de filtros de áudio RC com Arduino — Revista FT", "pub-ft-desc": "Artigo científico focado na análise, projeto e simulação de filtros de áudio utilizando a plataforma Arduino.",
+      "contato-eyebrow": "06 / Contato", "contato-title": "Vamos conversar.", "contato-desc": "Aberto a novos desafios profissionais, projetos freelance e oportunidades internacionais. Com experiência prática no desenvolvimento e evolução de sistemas corporativos, busco aplicar minha expertise na construção de aplicações escaláveis e arquiteturas back-end robustas.", "contato-cv": "Baixar currículo (PDF)", "contato-eng": "ENG. COMP.", "footer-text": "Feito por Holliday Pedro dos Reis Rodrigues · "
+    },
+    en: {
+      "nav-sobre": "About", "nav-stack": "Stack", "nav-projetos": "Projects", "nav-formacao": "Education", "nav-publicacoes": "Publications", "nav-curriculo": "Resume", "nav-contato": "Contact",
+      "hero-eyebrow": "Backend Developer", "hero-subtitle": "builds systems <span class='accent'>from database to screen</span>.", "hero-btn-proj": "View projects", "hero-btn-contato": "Let's talk",
+      "schem-cap": "fig. 01 — architecture", "schem-interface": "Interface", "schem-api": "REST API", "schem-db": "Persistence",
+      "sobre-eyebrow": "01 / About", "sobre-title": "Profile", "sobre-p2": "I also work with React and React Native to deliver complete applications — from the data model to the user interface. I am focused on improving my English skills (intermediate level) and I seek challenging projects, including working in multicultural teams or professional exchange programs.",
+      "stat-period": "Semester · Comp. Eng.", "stat-hours": "Back-end Training", "stat-year": "Expected Graduation",
+      "stack-eyebrow": "02 / Components", "stack-title": "Tech Stack & Certifications",
+      "stack-java": "REST APIs creation, Spring Boot, Object-Oriented Programming, and JWT.", "stack-python": "FastAPI, Flask, SQLAlchemy, and integration with LLMs and AIs.", "stack-php": "MVC pattern, Composer, Laravel Sanctum, and native testing.", "stack-node": "Asynchrony, Event Loop, native modules, and fast APIs.", "stack-sql-name": "SQL Databases", "stack-sql": "Relational data modeling, complex queries, and JPA.",
+      "stack-front-title": "Front-end & Mobile", "stack-react": "Dynamic interfaces, Hooks, Context API, and global state.", "stack-mobile": "Cross-platform mobile apps, Expo, and native navigation.", "stack-css": "Semantic web structuring and rapid styling with Tailwind.",
+      "stack-devops-title": "DevOps & Management", "stack-git-title": "Versioning", "stack-git": "Source code management, branches, and basic CI/CD flows.", "stack-docker": "Service containerization and asynchronous messaging.", "stack-agile-name": "ClickUp (Agile)", "stack-agile-title": "Management", "stack-agile": "Sprint planning, agile methodologies, and task tracking.",
+      "proj-eyebrow": "03 / Projects", "proj-title": "Recent Work", "proj-edu-desc": "Back-end development for the Educalegis system, responsible for building new features and evolving REST APIs. Focused on implementing business rules, repository tracking via GitLab, and agile management in ClickUp.", "proj-edu-tag": "Business Rules", "proj-prof": "Professional Environment", "proj-art-desc": "Java academic capstone project developed in a team, applying software engineering fundamentals and data persistence.", "proj-art-tag": "Teamwork", "proj-github": "View on GitHub", "proj-chat-desc": "Interactive chat application with Artificial Intelligence integration. Project developed to explore LLM API consumption, offering a fluid conversational interface and intelligent backend processing.", "proj-chat-tag1": "AI Integration", "proj-chat-tag3": "Innovation",
+      "edu-eyebrow": "04 / Education", "edu-title": "Education & Certifications", "edu-eng-name": "Computer Engineering", "edu-eng-status": "In progress", "edu-eng-desc": "Currently in the 8th and final semester of the degree.", "edu-node-name": "Node.js Fundamentals Extension Course — 18h", "edu-node-desc": "Node.js architecture (Event Loop, V8, threads), module manipulation (CommonJS and ES Modules), asynchrony (Promises, async/await), streams, SQLite and Postgres integration, Docker, native testing, Swagger, and OpenAI integration.", "edu-php-name": "PHP Extension Course — 126h", "edu-php-desc": "PHP fundamentals, Object-Oriented Programming, MVC pattern, SQL commands, dependency management with Composer, Laravel fundamentals (APIs, Artisan, Sanctum), testing with PHPUnit and Pest, Livewire, and deploy with Laravel Cloud and Google Cloud.", "edu-py-name": "Python Training — 100h", "edu-py-desc": "Python fundamentals, REST APIs (Flask and FastAPI), SQLAlchemy (MySQL, SQLite, Redis, MongoDB), Websockets, Design Patterns, SOLID, MVC Architecture, JWT Authentication, Automated Testing with Pytest, messaging with RabbitMQ, and integration with LLMs via Ollama and Streamlit.", "edu-rn-name": "React Native Extension Course — 155h", "edu-rn-desc": "React Native, Expo, TypeScript, state management (Zustand, Context API), storage (AsyncStorage, SQLite), REST API (Axios), navigation (React Navigation, Expo Router), Push Notifications, animations, and testing (Jest, RTL, Maestro).", "edu-react-name": "React Extension Course — 35h", "edu-react-desc": "React fundamentals, rendering, state, components, JSX, hooks, Context API, Vite, Tailwind, memoization, API requests, React Query, Radix UI, routing, URL state, NUQS, Zod validation, and deploy.", "edu-java-name": "Java Training — 100h", "edu-java-desc": "Java fundamentals, Collections, Maven, JDBC, Spring Boot, REST API, JPA, JWT authentication, Swagger documentation, testing with JUnit and Mockito, monitoring with Prometheus and Grafana, Thymeleaf, design patterns, and DDD.",
+      "pub-eyebrow": "05 / Publications", "pub-title": "Academic Production", "pub-rease-title": "Co-author of Scientific Article — REASE Journal", "pub-org": "Academic Research", "pub-rease-desc": "Publication of a scientific article in the REASE Journal, addressing research and development in the area of digital web systems and electronic circuit simulation.", "pub-link": "View publication", "pub-ft-title": "Analysis and simulation of RC audio filters with Arduino — FT Journal", "pub-ft-desc": "Scientific article focused on the analysis, design, and simulation of audio filters using the Arduino platform.",
+      "contato-eyebrow": "06 / Contact", "contato-title": "Let's talk.", "contato-desc": "Open to new professional challenges, freelance projects, and international opportunities. With practical experience in the development and evolution of corporate systems, I seek to apply my expertise in building scalable applications and robust back-end architectures.", "contato-cv": "Download Resume (PDF)", "contato-eng": "COMP. ENG.", "footer-text": "Built by Holliday Pedro dos Reis Rodrigues · "
+    }
+  };
+
+  // Define o Inglês como idioma de abertura
+  let currentLang = 'en';
+
+  // Lógica de Formatura (Atualiza as frases de acordo com a data)
+  const dataFormatura = new Date(2026, 11, 20);
+  const dataAtual = new Date();
+  
+  const textHeroDescPT = "Estudante do último período de Engenharia de Computação, focado em back-end com Java (Spring Boot), Python, PHP e Node.js — e capaz de fechar o produto inteiro com React e React Native.";
+  const textHeroDescEN = "Computer Engineering senior student, focused on back-end with Java (Spring Boot), Python, PHP, and Node.js — and capable of building the full product with React and React Native.";
+  const textHeroDescGradPT = "Engenheiro de Computação formado, focado em back-end com Java (Spring Boot), Python, PHP e Node.js — e capaz de fechar o produto inteiro com React e React Native.";
+  const textHeroDescGradEN = "Graduated Computer Engineer, focused on back-end with Java (Spring Boot), Python, PHP, and Node.js — and capable of building the full product with React and React Native.";
+  
+  const textSobreP1PT = "Estou no 8º e último período de Engenharia de Computação na Universidade CEUMA, com foco em desenvolvimento back-end usando Java, Python, PHP e Node.js: construção de APIs REST, autenticação, testes automatizados, documentação clara com Swagger e monitoramento.";
+  const textSobreP1EN = "I am in my 8th and final semester of Computer Engineering at CEUMA University, focusing on back-end development using Java, Python, PHP, and Node.js: building REST APIs, authentication, automated testing, clear Swagger documentation, and monitoring.";
+  const textSobreP1GradPT = "Sou Engenheiro de Computação formado pela Universidade CEUMA, com foco em desenvolvimento back-end usando Java, Python, PHP e Node.js: construção de APIs REST, autenticação, testes automatizados, documentação clara com Swagger e monitoramento.";
+  const textSobreP1GradEN = "I am a Computer Engineer graduated from CEUMA University, focusing on back-end development using Java, Python, PHP, and Node.js: building REST APIs, authentication, automated testing, clear Swagger documentation, and monitoring.";
+
+  if (dataAtual > dataFormatura) {
+    i18n.pt["hero-desc"] = textHeroDescGradPT;
+    i18n.en["hero-desc"] = textHeroDescGradEN;
+    i18n.pt["sobre-p1"] = textSobreP1GradPT;
+    i18n.en["sobre-p1"] = textSobreP1GradEN;
+    
+    i18n.pt["stat-period"] = "Graduação Concluída";
+    i18n.en["stat-period"] = "Degree Completed";
+    i18n.pt["stat-year"] = "Ano de formatura";
+    i18n.en["stat-year"] = "Graduation Year";
+    
+    i18n.pt["edu-eng-status"] = "Concluído";
+    i18n.en["edu-eng-status"] = "Completed";
+    i18n.pt["edu-eng-desc"] = "Bacharelado concluído.";
+    i18n.en["edu-eng-desc"] = "Bachelor's degree completed.";
+    
+    document.getElementById('stat-period-num').innerText = "100%";
+    document.getElementById('edu-status').classList.add('concluido'); 
+  } else {
+    i18n.pt["hero-desc"] = textHeroDescPT;
+    i18n.en["hero-desc"] = textHeroDescEN;
+    i18n.pt["sobre-p1"] = textSobreP1PT;
+    i18n.en["sobre-p1"] = textSobreP1EN;
+  }
+
+  // Função central que injeta o idioma na tela
+  function applyLanguage() {
+    // Como o site está em um idioma, o botão deve mostrar a opção de ir para o OUTRO
+    document.getElementById('btn-lang').innerText = currentLang === 'en' ? 'Português' : 'Inglês';
+
+    // Varre o HTML e atualiza os textos
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+      const key = element.getAttribute('data-i18n');
+      if (i18n[currentLang][key]) {
+        element.innerHTML = i18n[currentLang][key];
+      }
+    });
+
+    // Atualiza os links do Currículo (Garante que se trocar idioma, baixa o PDF certo)
+    const cvFile = currentLang === 'en' ? 'resume-en.pdf' : 'curriculo.pdf';
+    document.getElementById('cv-link-nav').href = cvFile;
+    document.getElementById('cv-link-footer').href = cvFile;
+  }
+
+  // Função engatilhada ao clicar no botão
+  window.toggleLanguage = function() {
+    currentLang = currentLang === 'pt' ? 'en' : 'pt';
+    applyLanguage();
+  }
+
+  // Aciona a tradução para Inglês IMEDIATAMENTE ao abrir o site
+  applyLanguage();
+
+  // --- RESTANTE DOS SCRIPTS ---
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Scrollspy: Destaca o link do menu correspondente à seção visível
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll(".nav ul li a");
 
@@ -278,7 +568,6 @@
         current = section.getAttribute("id");
       }
     });
-
     navLinks.forEach(link => {
       link.classList.remove("active");
       if (link.getAttribute("href") === `#${current}`) {
@@ -287,26 +576,47 @@
     });
   });
 
-  // ---AUTO-ATUALIZAÇÃO DE FORMATURA ---
-  // Defina a data da sua formatura (Ano, Mês, Dia). Lembre-se: no JS, os meses vão de 0 (Jan) a 11 (Dez).
-  const dataFormatura = new Date(2026, 11, 20); // 20 de Dezembro de 2026
-  const dataAtual = new Date();
+  document.addEventListener("DOMContentLoaded", function() {
+    const techCards = document.querySelectorAll('.tech-card');
+    const interactElements = document.querySelectorAll('.proj-row, .edu-item, .sig-block');
 
-  if (dataAtual > dataFormatura) {
-    document.getElementById('hero-desc').innerHTML = "Engenheiro de Computação formado, focado em back-end com Java (Spring Boot), Python, PHP e Node.js — e capaz de fechar o produto inteiro com React e React Native.";
-    
-    document.getElementById('about-text').innerHTML = "Sou Engenheiro de Computação formado pela Universidade CEUMA, com foco em desenvolvimento back-end usando Java, Python, PHP e Node.js: construção de APIs REST, autenticação, testes automatizados, documentação clara com Swagger e monitoramento.";
-    
-    document.getElementById('stat-period-num').innerText = "100%";
-    document.getElementById('stat-period-text').innerText = "Graduação Concluída";
-    document.getElementById('stat-year-text').innerText = "Ano de formatura";
+    function checkCards() {
+      if (window.innerWidth > 800) {
+        techCards.forEach(card => card.classList.remove('flipped'));
+        interactElements.forEach(el => el.classList.remove('scroll-active'));
+        return;
+      }
+      const triggerPoint = window.innerHeight * 0.6; 
+      techCards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const distance = Math.abs(triggerPoint - (rect.top + (rect.height / 2)));
+        if (distance < 90) card.classList.add('flipped');
+        else card.classList.remove('flipped');
+      });
+      interactElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (triggerPoint >= rect.top && triggerPoint <= rect.bottom) el.classList.add('scroll-active');
+        else el.classList.remove('scroll-active');
+      });
+    }
 
-    const pill = document.getElementById('edu-status');
-    pill.innerText = "Concluído";
-    pill.classList.add('concluido'); 
-    
-    document.getElementById('edu-desc').innerText = "Bacharelado concluído.";
-  }
+    window.addEventListener('scroll', () => window.requestAnimationFrame(checkCards));
+    checkCards();
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const elementosParaAnimar = document.querySelectorAll('.proj-row, .edu-item, .stack-category, .sig-block');
+    elementosParaAnimar.forEach(el => el.classList.add('fade-in'));
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObserver.unobserve(entry.target); 
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+    elementosParaAnimar.forEach(el => fadeObserver.observe(el));
+  });
 </script>
 
 </body>
